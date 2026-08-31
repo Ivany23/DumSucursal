@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion, Variants } from 'framer-motion';
+import { m, Variants } from 'framer-motion';
 
 interface RevealTextProps {
   text: string;
@@ -46,7 +46,7 @@ export const RevealText: React.FC<RevealTextProps> = ({
 
   return (
     <Component className={`inline-block perspective-container ${className}`}>
-      <motion.span
+      <m.span
         variants={container}
         initial="hidden"
         whileInView="visible"
@@ -54,15 +54,15 @@ export const RevealText: React.FC<RevealTextProps> = ({
         className="inline-flex flex-wrap gap-x-[0.28em] gap-y-[0.1em]"
       >
         {words.map((word, index) => (
-          <motion.span
+          <m.span
             key={index}
             variants={child}
             className="inline-block transform-gpu"
           >
             {word}
-          </motion.span>
+          </m.span>
         ))}
-      </motion.span>
+      </m.span>
     </Component>
   );
 };

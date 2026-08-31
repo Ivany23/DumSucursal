@@ -26,14 +26,14 @@ export default function MarcasPage() {
               href={`/produtos?marca=${encodeURIComponent(brand.name)}`}
               className="block group h-full"
             >
-              <GlassCard3D className="h-full" intensity={8}>
-                <div className="p-8 h-full flex flex-col justify-between">
+              <GlassCard3D className="h-full" intensity={6}>
+                <div className="p-8 h-full flex flex-col justify-between bg-white">
                   <div>
                     <div className="flex items-center justify-between mb-4">
                       <span className="text-2xl font-serif font-black tracking-wider text-[#0066FF] group-hover:text-[#0052CC] transition-colors">
                         {brand.logoText}
                       </span>
-                      <span className="flex items-center gap-1 text-[11px] text-[#64748B] bg-white/80 px-2.5 py-1 rounded-full border border-[#0B1B3A]/10">
+                      <span className="flex items-center gap-1 text-[11px] text-slate-600 bg-slate-50 px-2.5 py-1 rounded-full border border-slate-200">
                         <Globe className="w-3 h-3 text-[#0066FF]" />
                         {brand.origin}
                       </span>
@@ -43,12 +43,12 @@ export default function MarcasPage() {
                       {brand.category}
                     </span>
 
-                    <p className="text-xs text-[#64748B] leading-relaxed font-normal mb-6 line-clamp-3">
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal mb-6 line-clamp-3">
                       {brand.description}
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-[#0B1B3A]/10 flex items-center justify-between text-xs text-[#1E293B]">
+                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-800">
                     <span className="flex items-center gap-1.5 text-[#0066FF] font-semibold">
                       <Tag className="w-3.5 h-3.5" />
                       {brand.featuredProductCount}+ Produtos
@@ -63,12 +63,14 @@ export default function MarcasPage() {
           ))}
         </div>
 
-        <div className="p-10 rounded-3xl glass-panel border border-[#0052CC]/30 bg-gradient-to-r from-[#0066FF]/10 via-[#EAF1FF]/40 to-[#FFFFFF] text-center max-w-4xl mx-auto shadow-sm">
-          <Sparkles className="w-8 h-8 text-[#0066FF] mx-auto mb-4" />
+        <div className="p-10 rounded-3xl bg-white border border-slate-200 text-center max-w-4xl mx-auto shadow-sm">
+          <div className="w-14 h-14 rounded-2xl bg-[#F0F7FF] border border-[#0066FF]/20 flex items-center justify-center text-[#0066FF] mx-auto mb-4">
+            <Sparkles className="w-7 h-7 text-[#0066FF]" />
+          </div>
           <h3 className="text-2xl sm:text-3xl font-bold text-[#0B1B3A] mb-3">
             Compromisso com a Autenticidade
           </h3>
-          <p className="text-sm text-[#475569] font-light max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-sm text-slate-600 font-normal max-w-2xl mx-auto mb-8 leading-relaxed">
             Todas as marcas comercializadas no armazém DUM Sociedade Lda contam com rastreabilidade de lote e certificados sanitários oficiais.
           </p>
           <MagneticButton href="/produtos" variant="primary" size="md">

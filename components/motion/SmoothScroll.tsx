@@ -3,10 +3,6 @@
 import React, { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Lenis from 'lenis';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const lenisRef = useRef<Lenis | null>(null);
@@ -14,9 +10,9 @@ export const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({ children
   const prevPathRef = useRef<string | null>(null);
 
   useEffect(() => {
-    // Initialize Lenis
+    // Initialize Lenis without heavy GSAP dependency
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
@@ -28,25 +24,21 @@ export const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({ children
 
     lenisRef.current = lenis;
 
-    // Connect Lenis to ScrollTrigger
-    lenis.on('scroll', ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-
-    gsap.ticker.lagSmoothing(0);
+    let rafId: number;
+    function raf(time: number) {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    }
+    rafId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
-      gsap.ticker.remove((time) => {
-        lenis.raf(time * 1000);
-      });
+      lenisRef.current = null;
     };
   }, []);
 
   // Ao mudar de rota, voltar sempre ao topo para a página surgir de imediato
-  // (e a navbar ficar sempre no topo, por cima do conteúdo)
   useEffect(() => {
     if (prevPathRef.current === pathname) return;
     prevPathRef.current = pathname;

@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, MapPin, Store } from 'lucide-react';
 import { GalleryItem } from '@/types';
 
@@ -49,7 +49,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
 
   return (
     <AnimatePresence>
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -91,7 +91,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
         )}
 
         {/* Modal Content */}
-        <motion.div
+        <m.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
@@ -136,8 +136,8 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
               <span>Visite a DUM presencialmente</span>
             </div>
           </div>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </AnimatePresence>
   );
 };

@@ -7,8 +7,8 @@ export const categories: Category[] = [
     name: 'Mercearia & Essenciais',
     shortDescription: 'Arroz, trigo, farinhas, massas, óleos e conservas essenciais para o dia a dia.',
     description: 'Tudo o que não pode faltar na despensa da sua casa ou empresa: arroz, trigo, farinhas de uso diário, massas, óleos, açúcar, feijão e conservas — alimentos essenciais que garantem praticidade e qualidade nas refeições de todos os dias.',
-    image: '/images/banners/mercearia.jpg',
-    bannerImage: '/images/banners/mercearia.jpg',
+    image: '/images/categories/MerceariaEssenciais.png',
+    bannerImage: '/images/categories/MerceariaEssenciais.png',
     iconName: 'ShoppingBag',
     itemCount: '60+ Produtos',
     highlights: ['Arroz CIM, Dona & Europa', 'Farinhas Florbela & Top Score', 'Azeite & Conservas Gourmet', 'Óleos Dona & Massas Polana']
@@ -19,6 +19,8 @@ export const categories: Category[] = [
     name: 'Bebidas & Garrafeira',
     shortDescription: 'Águas puras, sumos naturais, refrigerantes e vinhos de colheitas especiais.',
     description: 'Uma garrafeira e secção de bebidas organizada por temperatura e origem. Encontre desde a hidratação diária a referências de vinhos e destilados para ocasiões inesquecíveis.',
+    image: '/images/categories/Bebidas.png',
+    bannerImage: '/images/categories/Bebidas.png',
     iconName: 'Wine',
     itemCount: '30+ Produtos',
     highlights: ['Néctares Compal 12 Sabores', 'Água Mineral Namaacha', 'Coca-Cola, Fanta & Sprite', 'Spar-Letta & Twist']
@@ -29,6 +31,8 @@ export const categories: Category[] = [
     name: 'Laticínios & Frescos',
     shortDescription: 'Queijos curados, manteigas cremosas, iogurtes e leites de qualidade certificada.',
     description: 'Conservados em balcões refrigerados de última geração que garantem frescura máxima, textura ideal e pureza de sabor desde o produtor até à sua mesa.',
+    image: '/images/categories/lacticiniosFrescos.png',
+    bannerImage: '/images/categories/lacticiniosFrescos.png',
     iconName: 'Milk',
     itemCount: 'Em Breve',
     highlights: ['Leite Europa', 'Nido FortiGrow', 'Lacticínios Selecionados', 'Produtos Frescos']
@@ -39,6 +43,8 @@ export const categories: Category[] = [
     name: 'Congelados Selecionados',
     shortDescription: 'Pescados nobres, carnes premium, vegetais ultracongelados e sobremesas.',
     description: 'Cadeia de frio rigorosa que preserva nutrientes e propriedades organolépticas intactas. Variedade inigualável para a sua conveniência e nutrição.',
+    image: '/images/categories/Carnes.png',
+    bannerImage: '/images/categories/Carnes.png',
     iconName: 'Snowflake',
     itemCount: '3 Produtos',
     highlights: ['Frango DUM 1KG', 'Carne de Vaca DUM', 'Carne de Peru DUM', 'Selecção Fresca']
@@ -49,6 +55,8 @@ export const categories: Category[] = [
     name: 'Higiene & Cuidado Pessoal',
     shortDescription: 'Fórmulas suaves, sabonetes botânicos, champôs e dermocosméticos essenciais.',
     description: 'Um corredor dedicado ao seu bem-estar diário e auto-cuidado, com marcas consagradas para pele, cabelo e higiene familiar completa.',
+    image: '/images/categories/HigieneCuidadoPessoal.png',
+    bannerImage: '/images/categories/HigieneCuidadoPessoal.png',
     iconName: 'Sparkles',
     itemCount: '20+ Produtos',
     highlights: ['Pastas Colgate & Aquafresh', 'Sabonetes Dettol', 'Sabonetes Líquidos', 'Escovas Colgate']

@@ -27,13 +27,13 @@ export default function OfertasPage() {
             return (
               <div
                 key={banner.id}
-                className="rounded-3xl border border-[#0052CC]/20 bg-gradient-to-br from-[#F0F7FF] via-[#FFFFFF] to-[#F8FAFF] p-6 sm:p-8 md:p-10 shadow-[0_15px_40px_rgba(0,82,204,0.06)] hover:shadow-[0_20px_50px_rgba(0,82,204,0.12)] transition-all duration-300"
+                className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 md:p-10 shadow-sm hover:shadow-xl hover:border-[#0066FF]/40 transition-all duration-300"
               >
                 <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${isReversed ? 'lg:grid-flow-dense' : ''}`}>
                   <div className={`lg:col-span-7 ${isReversed ? 'lg:col-start-6' : ''}`}>
                     <div
                       onClick={() => setSelectedBanner(banner)}
-                      className="group relative w-full rounded-2xl overflow-hidden cursor-pointer shadow-xl border border-[#0052CC]/15 bg-slate-900 transition-all duration-500 hover:scale-[1.01]"
+                      className="group relative w-full rounded-2xl overflow-hidden cursor-pointer shadow-md border border-slate-200 bg-slate-900 transition-all duration-500 hover:scale-[1.01]"
                     >
                       {banner.aspectRatio === 'portrait' ? (
                         <div className="relative w-full h-[520px] max-w-md mx-auto">
@@ -71,11 +71,11 @@ export default function OfertasPage() {
                   <div className={`lg:col-span-5 flex flex-col justify-between ${isReversed ? 'lg:col-start-1' : ''}`}>
                     <div>
                       <div className="flex items-center gap-2.5 mb-4">
-                        <span className="px-3.5 py-1 rounded-full bg-[#0066FF] text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+                        <span className="px-3.5 py-1 rounded-full bg-[#0066FF] text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-2xs">
                           <Tag className="w-3 h-3" />
                           {banner.brand}
                         </span>
-                        <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-[11px] font-semibold flex items-center gap-1 border border-amber-200">
+                        <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-[11px] font-bold flex items-center gap-1 border border-amber-300">
                           <Sparkles className="w-3 h-3 text-amber-600" />
                           Destaque Oficial DUM
                         </span>
@@ -85,13 +85,13 @@ export default function OfertasPage() {
                         {banner.slogan}
                       </h2>
 
-                      <p className="text-sm sm:text-base text-[#475569] font-light leading-relaxed mb-6">
+                      <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mb-6">
                         {banner.tagline}
                       </p>
 
                       <div className="space-y-2 mb-8">
                         {banner.highlights.map((point, idx) => (
-                          <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-[#1E293B] font-medium">
+                          <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-slate-800 font-medium">
                             <CheckCircle2 className="w-4 h-4 text-[#0066FF] flex-shrink-0" />
                             <span>{point}</span>
                           </div>
@@ -99,7 +99,7 @@ export default function OfertasPage() {
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-[#0B1B3A]/10">
+                    <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-slate-100">
                       <MagneticButton
                         href={banner.productFilterUrl}
                         variant="primary"
@@ -125,14 +125,14 @@ export default function OfertasPage() {
           })}
         </div>
 
-        <div className="p-8 sm:p-12 rounded-3xl border border-[#0052CC]/25 bg-gradient-to-r from-[#0066FF]/10 via-[#EAF1FF]/60 to-[#FFFFFF] text-center max-w-4xl mx-auto shadow-sm">
-          <div className="w-14 h-14 rounded-2xl bg-[#0066FF] flex items-center justify-center text-white mx-auto mb-5 shadow-lg shadow-[#0066FF]/25">
+        <div className="p-8 sm:p-12 rounded-3xl border border-slate-200 bg-white text-center max-w-4xl mx-auto shadow-sm">
+          <div className="w-14 h-14 rounded-2xl bg-[#0066FF] flex items-center justify-center text-white mx-auto mb-5 shadow-sm">
             <Store className="w-7 h-7" />
           </div>
           <h3 className="text-2xl sm:text-3xl font-bold text-[#0B1B3A] mb-3">
             Visite o Armazém Presencial DUM Sociedade Lda
           </h3>
-          <p className="text-sm sm:text-base text-[#475569] font-light max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 font-normal max-w-2xl mx-auto mb-8 leading-relaxed">
             Todas estas marcas e produtos encontram-se em stock físico contínuo nas nossas instalações. Venha conhecer a nossa variedade, atendimento de excelência e estrutura organizada.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">

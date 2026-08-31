@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 interface SectionTitleProps {
   badge?: string;
@@ -28,19 +28,19 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
   return (
     <div className={`flex flex-col max-w-3xl mb-12 md:mb-16 ${alignClasses[align]} ${className}`}>
       {badge && (
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0052CC]/30 bg-[#0066FF]/40 text-[#0066FF] text-xs font-semibold uppercase tracking-[0.2em] mb-4 backdrop-blur-md"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0066FF]/30 bg-white text-[#0066FF] text-xs font-bold uppercase tracking-[0.2em] mb-4 shadow-2xs"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-[#0066FF] animate-pulse" />
           {badge}
-        </motion.div>
+        </m.div>
       )}
 
-      <motion.h2
+      <m.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-50px' }}
@@ -48,10 +48,10 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
         className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#0B1B3A] leading-[1.15]"
       >
         {title}
-      </motion.h2>
+      </m.h2>
 
       {subtitle && (
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
@@ -59,7 +59,7 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
           className="mt-4 text-base sm:text-lg text-[#64748B] leading-relaxed max-w-2xl font-light"
         >
           {subtitle}
-        </motion.p>
+        </m.p>
       )}
     </div>
   );

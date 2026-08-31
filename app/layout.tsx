@@ -1,8 +1,36 @@
 import type { Metadata } from 'next';
+import { Outfit, Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { SmoothScroll } from '@/components/motion/SmoothScroll';
+import { MotionProvider } from '@/components/motion/MotionProvider';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+
+// next/font auto-downloads and self-hosts fonts — zero external requests, zero render blocking
+const outfit = Outfit({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-outfit',
+  display: 'swap',
+  preload: true,
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-serif',
+  display: 'swap',
+  preload: false, // Secondary font — load async
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-sans',
+  display: 'swap',
+  preload: false, // Secondary font — load async
+});
 
 export const metadata: Metadata = {
   title: 'DUM Sociedade Lda | Armazém Moderno & Experiência de Compra',
@@ -33,13 +61,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt" className="scroll-smooth">
-      <body className="bg-white text-dum-text-primary antialiased selection:bg-dum-primary selection:text-white min-h-screen flex flex-col justify-between">
-        <SmoothScroll>
-          <Navbar />
-          <main className="flex-grow pt-0">{children}</main>
-          <Footer />
-        </SmoothScroll>
+    <html lang="pt" className={`scroll-smooth ${outfit.variable} ${playfair.variable} ${jakarta.variable}`}>
+      <body className="bg-white text-dum-text-primary antialiased selection:bg-dum-primary selection:text-white min-h-screen flex flex-col justify-between font-[family-name:var(--font-outfit)]">
+        <MotionProvider>
+          <SmoothScroll>
+            <Navbar />
+            <main className="flex-grow pt-0">{children}</main>
+            <Footer />
+          </SmoothScroll>
+        </MotionProvider>
       </body>
     </html>
   );

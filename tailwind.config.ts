@@ -90,7 +90,11 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'blue-gradient': 'linear-gradient(135deg, #0066FF 0%, #0052CC 50%, #003D99 100%)',
-        'gold-gradient': 'linear-gradient(135deg, #60A5FA 0%, #0066FF 45%, #003D99 100%)',
+        'gold-gradient': 'linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%)',
+        'emerald-gradient': 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+        'ruby-gradient': 'linear-gradient(135deg, #F43F5E 0%, #E11D48 100%)',
+        'amber-gradient': 'linear-gradient(135deg, #F59E0B 0%, #EA580C 100%)',
+        'purple-gradient': 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
         'accent-gradient': 'linear-gradient(135deg, #0066FF 0%, #22C55E 100%)',
         'white-glass': 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 247, 255, 0.9) 100%)',
       },

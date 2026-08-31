@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { m, useScroll, useTransform } from 'framer-motion';
 import { MapPin, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 import { StoreStatus } from '@/components/ui/StoreStatus';
@@ -25,7 +25,7 @@ export const HeroCinematic: React.FC = () => {
       className="relative w-full min-h-screen h-screen overflow-hidden flex items-center justify-center bg-[#FFFFFF]"
     >
       {/* Layer 1: Procedural Blue & White Atmospheric Background */}
-      <motion.div
+      <m.div
         style={{ y: bgY }}
         className="absolute inset-0 z-0 origin-center pointer-events-none"
       >
@@ -43,55 +43,55 @@ export const HeroCinematic: React.FC = () => {
         {/* Vignette gradients */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#FFFFFF] via-transparent to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#FFFFFF]/90 via-transparent to-[#FFFFFF]/90" />
-      </motion.div>
+      </m.div>
 
       {/* Layer 2: 3D WebGL Floating Particles */}
       <HeroScene3D />
 
       {/* Layer 3: Main Typography & Interactive Content */}
-      <motion.div
+      <m.div
         style={{ y: textY, opacity }}
         className="relative z-20 max-w-5xl mx-auto px-6 sm:px-8 text-center flex flex-col items-center pt-16 sm:pt-20"
       >
         {/* Badge & Store Status */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-wrap items-center justify-center gap-3 mb-6"
         >
-          <span className="px-3.5 py-1 rounded-full border border-[#0052CC]/40 bg-[#EAF1FF]/80 text-[#0066FF] text-xs font-semibold uppercase tracking-[0.25em] backdrop-blur-md flex items-center gap-2">
-            <Sparkles className="w-3.5 h-3.5 text-[#0066FF]" />
-            DUM Sociedade Lda &bull; Armazém Moderno
+          <span className="px-3.5 py-1 rounded-full border border-amber-300/80 bg-white text-slate-800 text-xs font-bold uppercase tracking-[0.25em] shadow-2xs flex items-center gap-2">
+            <Sparkles className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />
+            <span className="text-[#0066FF]">DUM Sociedade Lda</span> &bull; Armazém Moderno
           </span>
           <StoreStatus />
-        </motion.div>
+        </m.div>
 
         {/* Master Headline */}
-        <motion.h1
+        <m.h1
           initial={{ opacity: 0, scale: 0.94, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-[#0B1B3A] leading-[1.08] mb-6 drop-shadow-[0_10px_30px_rgba(0,0,0,0.18)]"
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-[#0B1B3A] leading-[1.08] mb-6"
         >
           Tudo o que precisa.{' '}
           <span className="block text-gold-gradient italic font-serif font-normal">
             Num só lugar.
           </span>
-        </motion.h1>
+        </m.h1>
 
         {/* Subheadline */}
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="text-lg sm:text-xl md:text-2xl text-[#334155] font-light max-w-3xl mb-10 leading-relaxed drop-shadow-md"
+          className="text-lg sm:text-xl md:text-2xl text-slate-600 font-normal max-w-3xl mb-10 leading-relaxed"
         >
           Qualidade, variedade e uma experiência de compra moderna para toda a família e empresas.
-        </motion.p>
+        </m.p>
 
         {/* Action Buttons */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -108,33 +108,33 @@ export const HeroCinematic: React.FC = () => {
 
           <MagneticButton
             href="/localizacao"
-            variant="secondary"
+            variant="outline"
             size="lg"
             icon={<MapPin className="w-4 h-4" />}
           >
             Como Chegar à Loja
           </MagneticButton>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
 
       {/* Layer 4: Decorative Bottom Scroll Indicator */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none"
       >
-        <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#0066FF]/80">
+        <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#0066FF]">
           Descubra o Armazém
         </span>
-        <motion.div
+        <m.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-8 h-12 rounded-full border border-[#0052CC]/40 flex items-start justify-center p-2 backdrop-blur-sm"
+          className="w-7 h-11 rounded-full border border-slate-300 bg-white flex items-start justify-center p-1.5 shadow-2xs"
         >
           <div className="w-1.5 h-3 rounded-full bg-[#0066FF]" />
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </div>
   );
 };

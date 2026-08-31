@@ -9,54 +9,51 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-dum-bg-tertiary border-t border-dum-primary/10 text-dum-text-secondary overflow-hidden pt-20 pb-12">
-      {/* Ambient background glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-dum-primary/5 rounded-full blur-[140px] pointer-events-none" />
-
+    <footer className="relative bg-[#F8FAFC] border-t border-slate-200 text-slate-600 overflow-hidden pt-20 pb-12">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           {/* Col 1 & 2: Brand & Purpose */}
           <div className="lg:col-span-2 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3.5 mb-6">
-                <div className="w-11 h-11 rounded-xl bg-blue-gradient border border-dum-primary/40 flex items-center justify-center shadow-glow-blue">
+                <div className="w-11 h-11 rounded-xl bg-blue-gradient border border-[#0066FF]/40 flex items-center justify-center shadow-sm">
                   <span className="text-2xl font-serif font-black text-white">
                     D
                   </span>
                 </div>
                 <div>
-                  <span className="text-2xl font-bold tracking-wider text-dum-text-primary font-serif block">
+                  <span className="text-2xl font-bold tracking-wider text-[#0B1B3A] font-serif block">
                     DUM
                   </span>
-                  <span className="text-xs tracking-[0.25em] text-dum-primary uppercase font-semibold">
+                  <span className="text-xs tracking-[0.25em] text-[#0066FF] uppercase font-bold">
                     Sociedade Lda
                   </span>
                 </div>
               </div>
 
-              <p className="text-sm text-dum-text-secondary leading-relaxed max-w-md font-light mb-6">
+              <p className="text-sm text-slate-600 leading-relaxed max-w-md font-normal mb-6">
                 Armazém moderno com características de supermercado. A nossa missão é proporcionar uma experiência de compra presencial organizada, acolhedora, moderna e de confiança para famílias e empresas.
               </p>
 
               <StoreStatus />
             </div>
 
-            <div className="mt-8 pt-6 border-t border-dum-primary/10 flex items-center gap-2 text-xs text-dum-primary">
-              <ShieldCheck className="w-4 h-4 text-dum-primary" />
+            <div className="mt-8 pt-6 border-t border-slate-200 flex items-center gap-2 text-xs text-[#0066FF] font-semibold">
+              <ShieldCheck className="w-4 h-4 text-[#0066FF]" />
               <span>Garantia de Qualidade & Origem Certificada</span>
             </div>
           </div>
 
           {/* Col 3: Navegação Rápida */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-widest text-dum-text-primary mb-6 border-b border-dum-primary/10 pb-2">
+            <h4 className="text-sm font-bold uppercase tracking-widest text-[#0B1B3A] mb-6 border-b border-slate-200 pb-2">
               Explorar
             </h4>
-            <ul className="flex flex-col gap-3 text-sm font-light">
+            <ul className="flex flex-col gap-3 text-sm font-normal">
               <li>
-                <Link href="/produtos" className="hover:text-dum-primary transition-colors flex items-center justify-between group">
+                <Link href="/produtos" className="hover:text-[#0066FF] transition-colors flex items-center justify-between group">
                   <span>Catálogo de Produtos</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-dum-primary" />
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#0066FF]" />
                 </Link>
               </li>
               <li>

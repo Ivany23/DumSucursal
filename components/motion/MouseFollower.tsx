@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { motion, useSpring, useMotionValue } from 'framer-motion';
+import { m, useSpring, useMotionValue } from 'framer-motion';
 
 export const MouseFollower: React.FC = () => {
   const [mounted, setMounted] = useState(false);
@@ -27,7 +27,7 @@ export const MouseFollower: React.FC = () => {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-      <motion.div
+      <m.div
         style={{
           x: smoothX,
           y: smoothY,

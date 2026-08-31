@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
-import { motion, useSpring, useMotionValue } from 'framer-motion';
+import React, { useRef, useState, useCallback } from 'react';
 
 interface GlassCard3DProps {
   children: React.ReactNode;
@@ -11,6 +10,11 @@ interface GlassCard3DProps {
   onClick?: () => void;
 }
 
+/**
+ * CSS-only 3D card with tilt effect and glare.
+ * Replaced framer-motion useSpring/useMotionValue with native CSS transitions.
+ * On pages with 140+ cards, this eliminates 140+ JS spring instances.
+ */
 export const GlassCard3D: React.FC<GlassCard3DProps> = ({
   children,
   className = '',
@@ -19,16 +23,10 @@ export const GlassCard3D: React.FC<GlassCard3DProps> = ({
   onClick,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const [glarePosition, setGlarePosition] = useState({ x: 50, y: 50 });
+  const [transform, setTransform] = useState('rotateX(0deg) rotateY(0deg)');
+  const [glareStyle, setGlareStyle] = useState({ opacity: 0, background: '' });
 
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 20 });
-  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 20 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const width = rect.width;
@@ -43,57 +41,50 @@ export const GlassCard3D: React.FC<GlassCard3DProps> = ({
     const xOffset = (xPct - 0.5) * (intensity * 2);
     const yOffset = (yPct - 0.5) * -(intensity * 2);
 
-    x.set(xOffset);
-    y.set(yOffset);
-
-    setGlarePosition({
-      x: xPct * 100,
-      y: yPct * 100,
+    setTransform(`rotateX(${yOffset}deg) rotateY(${xOffset}deg)`);
+    setGlareStyle({
+      opacity: 1,
+      background: `radial-gradient(circle 350px at ${xPct * 100}% ${yPct * 100}%, ${glowColor}, transparent 70%)`,
     });
-  };
+  }, [intensity, glowColor]);
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    x.set(0);
-    y.set(0);
-  };
+  const handleMouseLeave = useCallback(() => {
+    setTransform('rotateX(0deg) rotateY(0deg)');
+    setGlareStyle({ opacity: 0, background: '' });
+  }, []);
 
   return (
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
       className={`perspective-container relative group ${className}`}
       style={{ perspective: 1200 }}
     >
-      <motion.div
+      <div
         style={{
-          rotateX: mouseYSpring,
-          rotateY: mouseXSpring,
+          transform,
           transformStyle: 'preserve-3d',
+          transition: 'transform 0.2s ease-out',
         }}
-        className="relative w-full h-full rounded-2xl transition-shadow duration-300 overflow-hidden glass-panel glass-panel-hover"
+        className="relative w-full h-full rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#0066FF]/60 transition-all duration-300 overflow-hidden"
       >
         {/* Dynamic Glare / Specular highlight following mouse */}
         <div
-          className="pointer-events-none absolute inset-0 transition-opacity duration-500 z-30"
+          className="pointer-events-none absolute inset-0 z-30"
           style={{
-            opacity: isHovered ? 1 : 0,
-            background: `radial-gradient(circle 350px at ${glarePosition.x}% ${glarePosition.y}%, ${glowColor}, transparent 70%)`,
+            opacity: glareStyle.opacity,
+            background: glareStyle.background,
+            transition: 'opacity 0.4s ease',
           }}
         />
 
         {/* Content */}
-        <div className="relative z-10 w-full h-full transform-gpu" style={{ transform: 'translateZ(20px)' }}>
+        <div className="relative z-10 w-full h-full transform-gpu" style={{ transform: 'translateZ(10px)' }}>
           {children}
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

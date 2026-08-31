@@ -77,7 +77,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0052CC]/30 bg-[#0066FF]/40 text-[#0066FF] text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0066FF]/30 bg-white text-[#0066FF] text-xs font-bold uppercase tracking-[0.2em] mb-4 shadow-2xs">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#0066FF] animate-pulse" />
                 Catálogo Físico
               </div>
@@ -104,9 +104,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <MorphDivider variant="slant" fillColor="#EAF1FF" />
+      <MorphDivider variant="slant" fillColor="#F8FAFC" />
 
-      <section className="relative py-20 md:py-32 bg-[#EAF1FF] px-6 sm:px-8">
+      <section className="relative py-20 md:py-32 bg-[#F8FAFC] px-6 sm:px-8">
         <div className="max-w-7xl mx-auto relative z-10">
           <SectionTitle
             badge="Seleção Especial"
@@ -135,11 +135,9 @@ export default function HomePage() {
 
       <BrandCarousel />
 
-      <section className="relative py-24 md:py-36 bg-gradient-to-b from-[#EFF5FF] via-[#FFFFFF] to-[#FFFFFF] px-6 sm:px-8 text-center overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#0066FF]/40 rounded-full blur-[150px] pointer-events-none" />
-
+      <section className="relative py-24 md:py-36 bg-white px-6 sm:px-8 text-center overflow-hidden">
         <div className="max-w-4xl mx-auto relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0052CC]/30 bg-[#0066FF]/50 text-[#0066FF] text-xs font-semibold uppercase tracking-[0.2em] mb-6 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0066FF]/30 bg-white text-[#0066FF] text-xs font-bold uppercase tracking-[0.2em] mb-6 shadow-2xs">
             <Store className="w-4 h-4 text-[#0066FF]" />
             Visita Presencial
           </div>

@@ -131,14 +131,14 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
           autoFocus={autoFocus}
-          className="w-full pl-12 pr-12 py-3.5 bg-white text-[#0B1B3A] placeholder-[#94A3B8] text-sm md:text-base rounded-2xl border border-[#0052CC]/25 focus:outline-none focus:border-[#0066FF] focus:ring-4 focus:ring-[#0066FF]/10 shadow-sm transition-all duration-300"
+          className="w-full pl-12 pr-12 py-3.5 bg-white text-[#0B1B3A] placeholder-slate-400 text-sm md:text-base rounded-2xl border border-slate-200 focus:outline-none focus:border-[#0066FF] focus:ring-4 focus:ring-[#0066FF]/10 shadow-xs transition-all duration-300"
         />
 
         {query && (
           <button
             type="button"
             onClick={handleClear}
-            className="absolute right-4 p-1 rounded-full text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+            className="absolute right-4 p-1 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
             title="Limpar pesquisa"
           >
             <X className="w-4 h-4" />
@@ -147,9 +147,9 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       </div>
 
       {showDropdown && isOpen && query.trim().length > 1 && (
-        <div className="absolute left-0 right-0 top-full mt-2 bg-white rounded-2xl shadow-2xl border border-[#0052CC]/20 overflow-hidden z-50 animate-in fade-in-50 slide-in-from-top-2 duration-200">
+        <div className="absolute left-0 right-0 top-full mt-2 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden z-50 animate-in fade-in-50 slide-in-from-top-2 duration-200">
           {hasResults ? (
-            <div className="p-3 max-h-[460px] overflow-y-auto divide-y divide-gray-100">
+            <div className="p-3 max-h-[460px] overflow-y-auto divide-y divide-slate-100">
               {searchResults.matchingBrands.length > 0 && (
                 <div className="pb-3 pt-1">
                   <div className="flex items-center gap-1.5 px-3 py-1 text-[11px] font-bold tracking-wider text-[#0066FF] uppercase">
@@ -162,7 +162,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                         key={b.id}
                         href={`/produtos?marca=${encodeURIComponent(b.name)}`}
                         onClick={() => setIsOpen(false)}
-                        className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-[#F0F7FF] transition-colors group"
+                        className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-slate-50 transition-colors group"
                       >
                         <div className="flex items-center gap-2">
                           <span className="w-2 h-2 rounded-full bg-[#0066FF] group-hover:scale-125 transition-transform" />
@@ -170,7 +170,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                             {b.name}
                           </span>
                         </div>
-                        <span className="text-[11px] text-[#64748B] group-hover:text-[#0066FF] flex items-center gap-0.5 font-medium">
+                        <span className="text-[11px] text-slate-500 group-hover:text-[#0066FF] flex items-center gap-0.5 font-medium">
                           Ver produtos <ChevronRight className="w-3 h-3" />
                         </span>
                       </Link>
@@ -191,28 +191,28 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                         key={p.id}
                         href={`/produtos/${p.slug}`}
                         onClick={() => setIsOpen(false)}
-                        className="flex items-center gap-3.5 p-2 rounded-xl hover:bg-[#F0F7FF] transition-all group"
+                        className="flex items-center gap-3.5 p-2 rounded-xl hover:bg-slate-50 transition-all group"
                       >
-                        <div className="relative w-12 h-12 rounded-lg bg-white border border-gray-200 overflow-hidden flex-shrink-0 p-1 flex items-center justify-center">
+                        <div className="relative w-12 h-12 rounded-lg bg-white border border-slate-200 overflow-hidden flex-shrink-0 p-1 flex items-center justify-center">
                           {p.image ? (
                             <Image
                               src={p.image}
                               alt={p.name}
                               width={44}
                               height={44}
-                              className="object-contain w-full h-full mix-blend-multiply group-hover:scale-110 transition-transform duration-300"
+                              className="object-contain w-full h-full group-hover:scale-110 transition-transform duration-300"
                             />
                           ) : (
-                            <span className="text-xs text-gray-400">DUM</span>
+                            <span className="text-xs text-slate-400">DUM</span>
                           )}
                         </div>
 
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="text-[10px] font-bold uppercase tracking-wider text-[#0066FF] bg-[#0066FF]/10 px-1.5 py-0.5 rounded">
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-[#0066FF] bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200">
                               {p.brand}
                             </span>
-                            <span className="text-[11px] text-[#64748B] truncate">
+                            <span className="text-[11px] text-slate-500 truncate">
                               {p.category}
                             </span>
                           </div>

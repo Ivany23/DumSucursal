@@ -21,10 +21,10 @@ export const StoreStatus: React.FC<{ className?: string }> = ({ className = '' }
 
   return (
     <div
-      className={`inline-flex items-center gap-2.5 px-3 py-1 rounded-full text-xs font-medium backdrop-blur-md transition-all ${
+      className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold transition-all shadow-2xs ${
         isOpen
-          ? 'bg-[#E7F6EC] text-[#15803D] border border-[#22C55E]/30'
-          : 'bg-[#FFF7E6] text-[#B45309] border border-[#FF9800]/30'
+          ? 'bg-emerald-50 text-emerald-800 border border-emerald-300'
+          : 'bg-amber-50 text-amber-800 border border-amber-300'
       } ${className}`}
     >
       <span className="relative flex h-2 w-2">
@@ -37,10 +37,10 @@ export const StoreStatus: React.FC<{ className?: string }> = ({ className = '' }
           <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
         )}
       </span>
-      <span className="tracking-wide">
+      <span className="tracking-wide font-semibold">
         {isOpen ? 'Loja Aberta Hoje até às 20:00' : 'Abre amanhã às 08:00'}
       </span>
-      <Clock className="w-3.5 h-3.5 opacity-70 ml-0.5" />
+      <Clock className="w-3.5 h-3.5 opacity-80 ml-0.5 text-current" />
     </div>
   );
 };
