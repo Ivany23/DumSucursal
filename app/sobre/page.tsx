@@ -28,21 +28,29 @@ export default function SobrePage() {
       icon: <ShieldCheck className="w-6 h-6" />,
       title: 'Confiança & Transparência',
       desc: 'Relações duradouras com famílias e parceiros comerciais através do rigor na origem dos produtos.',
+      box: 'bg-emerald-50 border-emerald-200 text-emerald-600',
+      bar: 'from-emerald-400 to-emerald-600',
     },
     {
       icon: <Award className="w-6 h-6" />,
       title: 'Qualidade Inegociável',
       desc: 'Critérios rígidos de seleção, refrigeração adequada e frescura comprovada em cada lote.',
+      box: 'bg-amber-50 border-amber-200 text-amber-600',
+      bar: 'from-amber-400 to-orange-500',
     },
     {
       icon: <Layers className="w-6 h-6" />,
       title: 'Organização Moderna',
       desc: 'Estrutura pensada para que encontre tudo o que necessita com facilidade, rapidez e conforto.',
+      box: 'bg-sky-50 border-sky-200 text-sky-600',
+      bar: 'from-sky-400 to-[#0066FF]',
     },
     {
       icon: <Users className="w-6 h-6" />,
       title: 'Acolhimento & Respeito',
       desc: 'Atendimento atencioso e humano, pronto a prestar orientações personalizadas aos clientes.',
+      box: 'bg-purple-50 border-purple-200 text-purple-600',
+      bar: 'from-purple-400 to-fuchsia-500',
     },
   ];
 
@@ -122,29 +130,37 @@ export default function SobrePage() {
 
         {/* 2. NÚMEROS DE IMPACTO */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-28">
-          {metrics.map((m, i) => (
-            <GlassCard3D key={i} className="h-full" intensity={6}>
-              <div className="p-8 text-center h-full flex flex-col justify-center bg-white">
-                <span className="text-4xl sm:text-5xl font-extrabold font-serif text-[#0066FF] mb-2 block">
-                  {m.value}
-                </span>
-                <span className="text-sm font-bold text-[#0B1B3A] uppercase tracking-wider mb-2 block">
-                  {m.label}
-                </span>
-                <span className="text-xs text-slate-500 font-normal">
-                  {m.desc}
-                </span>
-              </div>
-            </GlassCard3D>
-          ))}
+          {metrics.map((m, i) => {
+            const metricStyles = [
+              { value: 'text-[#0066FF]', ring: 'from-[#0066FF]/10 to-transparent', dot: 'bg-[#0066FF]' },
+              { value: 'text-emerald-600', ring: 'from-emerald-500/10 to-transparent', dot: 'bg-emerald-500' },
+              { value: 'text-purple-600', ring: 'from-purple-500/10 to-transparent', dot: 'bg-purple-500' },
+              { value: 'text-amber-500', ring: 'from-amber-400/10 to-transparent', dot: 'bg-amber-500' },
+            ][i % 4];
+            return (
+              <GlassCard3D key={i} className="h-full" intensity={6}>
+                <div className={`p-8 text-center h-full flex flex-col justify-center bg-gradient-to-br ${metricStyles.ring} bg-white`}>
+                  <span className={`text-4xl sm:text-5xl font-extrabold font-serif ${metricStyles.value} mb-2 block`}>
+                    {m.value}
+                  </span>
+                  <span className="text-sm font-bold text-[#0B1B3A] uppercase tracking-wider mb-2 block">
+                    {m.label}
+                  </span>
+                  <span className="text-xs text-slate-500 font-normal">
+                    {m.desc}
+                  </span>
+                </div>
+              </GlassCard3D>
+            );
+          })}
         </div>
 
         {/* 3. MISSÃO & VISÃO */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-28">
           <GlassCard3D className="h-full" intensity={6}>
-            <div className="p-8 md:p-10 h-full flex flex-col justify-between bg-white">
+            <div className="p-8 md:p-10 h-full flex flex-col justify-between bg-gradient-to-br from-white to-[#F0F7FF]">
               <div>
-                <div className="w-14 h-14 rounded-2xl bg-[#F0F7FF] border border-[#0066FF]/20 flex items-center justify-center text-[#0066FF] mb-6 shadow-xs">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#0066FF] to-[#0052CC] flex items-center justify-center text-white mb-6 shadow-lg shadow-[#0066FF]/25">
                   <Target className="w-7 h-7" />
                 </div>
                 <span className="text-xs font-bold uppercase tracking-widest text-[#0066FF] block mb-2">
@@ -161,12 +177,12 @@ export default function SobrePage() {
           </GlassCard3D>
 
           <GlassCard3D className="h-full" intensity={6}>
-            <div className="p-8 md:p-10 h-full flex flex-col justify-between bg-white">
+            <div className="p-8 md:p-10 h-full flex flex-col justify-between bg-gradient-to-br from-white to-purple-50">
               <div>
-                <div className="w-14 h-14 rounded-2xl bg-[#F0F7FF] border border-[#0066FF]/20 flex items-center justify-center text-[#0066FF] mb-6 shadow-xs">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-fuchsia-600 flex items-center justify-center text-white mb-6 shadow-lg shadow-purple-500/25">
                   <Eye className="w-7 h-7" />
                 </div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0066FF] block mb-2">
+                <span className="text-xs font-bold uppercase tracking-widest text-purple-600 block mb-2">
                   Futuro
                 </span>
                 <h3 className="text-2xl font-bold text-[#0B1B3A] mb-4">
@@ -196,7 +212,7 @@ export default function SobrePage() {
               <GlassCard3D key={i} className="h-full" intensity={6}>
                 <div className="p-6 h-full flex flex-col justify-between bg-white">
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-[#F0F7FF] border border-[#0066FF]/20 flex items-center justify-center text-[#0066FF] mb-4">
+                    <div className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-4 ${v.box}`}>
                       {v.icon}
                     </div>
                     <h4 className="text-base font-bold text-[#0B1B3A] mb-2">{v.title}</h4>
@@ -204,6 +220,7 @@ export default function SobrePage() {
                       {v.desc}
                     </p>
                   </div>
+                  <div className={`mt-4 h-1 rounded-full bg-gradient-to-r ${v.bar} opacity-60`} />
                 </div>
               </GlassCard3D>
             ))}

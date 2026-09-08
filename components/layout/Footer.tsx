@@ -137,7 +137,7 @@ export const Footer: React.FC = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-dum-primary shrink-0 mt-0.5" />
                 <span>
-                  Armazém DUM, Luanda / Angola<br />
+                  SOCIEDADE DUM LDA, Maputo / Moçambique<br />
                   Acesso facilitado e estacionamento seguro
                 </span>
               </div>

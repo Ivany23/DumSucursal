@@ -28,8 +28,12 @@ export default function HomePage() {
 
       <MorphDivider variant="gentle" fillColor="#F0F7FF" />
 
-      <section className="relative py-20 md:py-32 bg-[#F0F7FF] px-6 sm:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative py-20 md:py-32 bg-[#F0F7FF] px-6 sm:px-8 overflow-hidden">
+        {/* Ambient color wash */}
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-purple-400/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-emerald-400/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
           <SectionTitle
             badge="Diferenciais Exclusivos"
             title="A Excelência no Atendimento Presencial"
@@ -77,8 +81,8 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0066FF]/30 bg-white text-[#0066FF] text-xs font-bold uppercase tracking-[0.2em] mb-4 shadow-2xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0066FF] animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-transparent bg-gradient-to-r from-[#0066FF] via-[#8B5CF6] to-[#22C55E] text-white text-xs font-bold uppercase tracking-[0.2em] mb-4 shadow-md shadow-purple-500/25">
+                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                 Catálogo Físico
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#0B1B3A]">
@@ -135,10 +139,14 @@ export default function HomePage() {
 
       <BrandCarousel />
 
-      <section className="relative py-24 md:py-36 bg-white px-6 sm:px-8 text-center overflow-hidden">
+      <section className="relative py-24 md:py-36 bg-gradient-to-b from-white via-[#F0F7FF] to-emerald-50 px-6 sm:px-8 text-center overflow-hidden">
+        {/* Colorful ambient glows */}
+        <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-[#0066FF]/10 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[450px] h-[450px] bg-emerald-400/10 rounded-full blur-[130px] pointer-events-none" />
+
         <div className="max-w-4xl mx-auto relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0066FF]/30 bg-white text-[#0066FF] text-xs font-bold uppercase tracking-[0.2em] mb-6 shadow-2xs">
-            <Store className="w-4 h-4 text-[#0066FF]" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-transparent bg-gradient-to-r from-[#0066FF] via-[#8B5CF6] to-[#22C55E] text-white text-xs font-bold uppercase tracking-[0.2em] mb-6 shadow-md shadow-purple-500/25">
+            <Store className="w-4 h-4" />
             Visita Presencial
           </div>
 

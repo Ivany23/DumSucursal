@@ -35,6 +35,8 @@ export default function ContactoPage() {
     <div className="min-h-screen bg-[#FFFFFF] pt-32 pb-24 px-6 sm:px-8">
       <div className="max-w-7xl mx-auto">
         <SectionTitle
+          tone="light"
+          accent="gradient"
           badge="Canais Institucionais"
           title="Fale Connosco"
           subtitle="Estamos ao seu dispor para esclarecer dúvidas sobre a disponibilidade de artigos, parcerias com fornecedores ou visitas empresariais ao armazém."
@@ -81,7 +83,7 @@ export default function ContactoPage() {
                     <div>
                       <span className="text-xs text-slate-500 block font-medium">Sede & Armazém</span>
                       <p className="text-sm text-slate-700 font-normal">
-                        Complexo Comercial & Armazenista, Luanda - Angola
+                        SOCIEDADE DUM LDA, Zimpeto, Maputo — Moçambique
                       </p>
                     </div>
                   </div>

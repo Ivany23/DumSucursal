@@ -92,23 +92,22 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ category, index = 0 
     <Link href={`/categorias/${category.slug}`} className="block h-full">
       <GlassCard3D className="h-full min-h-[360px]" intensity={8}>
         <div className="relative w-full h-full p-6 flex flex-col justify-between overflow-hidden group bg-white">
-          {/* Background Stage */}
-          <div className="absolute inset-0 z-0 overflow-hidden bg-white">
+          {/* Background Stage - Image always fully visible */}
+          <div className="absolute inset-0 z-0 overflow-hidden bg-[#F8FAFC]">
             {category.image ? (
               <Image
                 src={category.image}
                 alt={category.name}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108 filter brightness-[0.92] contrast-[1.05]"
+                className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
               />
             ) : (
-              <div className="absolute inset-0 bg-[#F8FAFC]">
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#E2E8F0_1px,transparent_1px),linear-gradient(to_bottom,#E2E8F0_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-30" />
-              </div>
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#E2E8F0_1px,transparent_1px),linear-gradient(to_bottom,#E2E8F0_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-30" />
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/85 to-transparent/20" />
           </div>
+          {/* Subtle bottom gradient only for text readability */}
+          <div className="absolute inset-x-0 bottom-0 z-[1] h-40 bg-gradient-to-t from-white/95 via-white/50 to-transparent pointer-events-none" />
 
           {/* Top Tag, Icon & Number */}
           <div className="relative z-10 flex items-center justify-between">

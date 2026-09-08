@@ -39,9 +39,10 @@ export const metadata: Metadata = {
   keywords: [
     'DUM Sociedade Lda',
     'Armazém DUM',
-    'Supermercado Luanda',
+    'Supermercado Moçambique',
+    'Armazém Maputo',
     'Produtos Alimentares',
-    'Bebidas Angola',
+    'Bebidas Moçambique',
     'Mercearia & Essenciais',
     'Laticínios e Frescos',
     'Congelados',
@@ -61,7 +62,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt" className={`scroll-smooth ${outfit.variable} ${playfair.variable} ${jakarta.variable}`}>
+    <html lang="pt" data-scroll-behavior="smooth" suppressHydrationWarning className={`${outfit.variable} ${playfair.variable} ${jakarta.variable}`}>
       <body className="bg-white text-dum-text-primary antialiased selection:bg-dum-primary selection:text-white min-h-screen flex flex-col justify-between font-[family-name:var(--font-outfit)]">
         <MotionProvider>
           <SmoothScroll>

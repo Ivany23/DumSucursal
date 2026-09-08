@@ -17,6 +17,8 @@ export default function LocalizacaoPage() {
     <div className="min-h-screen bg-[#FFFFFF] pt-32 pb-24 px-6 sm:px-8">
       <div className="max-w-7xl mx-auto">
         <SectionTitle
+          tone="light"
+          accent="gradient"
           badge="Como Chegar"
           title="Localização & Acessos"
           subtitle="Visite a nossa loja física. Estamos estrategicamente localizados com acessos rápidos, parque de estacionamento vigiado e segurança 24h."
@@ -45,8 +47,8 @@ export default function LocalizacaoPage() {
                       Endereço do Armazém
                     </h3>
                     <p className="text-sm text-slate-600 font-normal leading-relaxed mb-3">
-                      DUM Sociedade Lda, Complexo Comercial & Armazenista<br />
-                      Luanda, Angola
+                      SOCIEDADE DUM LDA<br />
+                      Zimpeto, Cidade de Maputo — Moçambique
                     </p>
                     <span className="inline-flex items-center gap-1.5 text-xs text-[#0066FF] font-semibold">
                       <Car className="w-3.5 h-3.5" />
@@ -117,14 +119,14 @@ export default function LocalizacaoPage() {
               {/* Styled Map Background Representation */}
               <div className="absolute inset-0 bg-[#F8FAFC]">
                 <iframe
-                  title="Localização DUM Sociedade Lda"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126154.56683887053!2d13.181845657805177!3d-8.838332997127116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f15cdc8d2c7d%3A0x850c1c5ce3ee6e7e!2sLuanda%2C%20Angola!5e0!3m2!1spt-PT!2s!4v1700000000000!5m2!1spt-PT!2s"
+                  title="Localização SOCIEDADE DUM LDA"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3591.117067382901!2d32.574112574846566!3d-25.832687477307303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee693004347d3f3%3A0x9853007bc8547071!2sSOCIEDADE%20DUM%20LDA!5e0!3m2!1spt-PT!2smz!4v1788853018868!5m2!1spt-PT!2smz"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
-                  allowFullScreen={false}
+                  allowFullScreen
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+                  referrerPolicy="strict-origin-when-cross-origin"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -132,17 +134,17 @@ export default function LocalizacaoPage() {
               {/* Map floating Header Overlay */}
               <div className="relative z-10 p-4 rounded-2xl bg-white/95 backdrop-blur-sm border border-slate-200 max-w-sm shadow-sm">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-[#0066FF] block mb-1">
-                  Ponto de Referência
+                  SOCIEDADE DUM LDA
                 </span>
                 <p className="text-xs text-slate-700 font-medium">
-                  Acesso principal pela via expressa com sinalização vertical visível.
+                  Acesso principal com parque de estacionamento e sinalização visível.
                 </p>
               </div>
 
               {/* Map floating Bottom CTA */}
               <div className="relative z-10 flex flex-wrap gap-4 mt-auto">
                 <MagneticButton
-                  href="https://maps.google.com/?q=Luanda,Angola"
+                  href="https://www.google.com/maps?cid=10976117248473985137"
                   external={true}
                   variant="primary"
                   size="md"

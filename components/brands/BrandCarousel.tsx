@@ -38,6 +38,7 @@ export const BrandCarousel = () => {
                 loading="lazy"
                 sizes="240px"
                 className="object-contain max-w-full max-h-full"
+                style={{ width: 'auto', height: 'auto' }}
               />
             </div>
           ))}

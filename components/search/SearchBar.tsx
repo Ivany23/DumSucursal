@@ -201,6 +201,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
                               width={44}
                               height={44}
                               className="object-contain w-full h-full group-hover:scale-110 transition-transform duration-300"
+                              style={{ width: 'auto', height: 'auto' }}
                             />
                           ) : (
                             <span className="text-xs text-slate-400">DUM</span>
