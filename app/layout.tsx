@@ -54,6 +54,10 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'pt_AO',
   },
+  icons: {
+    icon: '/images/logo/DumLogo1.png',
+    apple: '/images/logo/DumLogo1.png',
+  },
 };
 
 export default function RootLayout({

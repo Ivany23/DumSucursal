@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MapPin, Phone, Clock, ArrowUpRight, ShieldCheck } from 'lucide-react';
 import { StoreStatus } from '@/components/ui/StoreStatus';
 
@@ -15,20 +16,14 @@ export const Footer: React.FC = () => {
           {/* Col 1 & 2: Brand & Purpose */}
           <div className="lg:col-span-2 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-3.5 mb-6">
-                <div className="w-11 h-11 rounded-xl bg-blue-gradient border border-[#0066FF]/40 flex items-center justify-center shadow-sm">
-                  <span className="text-2xl font-serif font-black text-white">
-                    D
-                  </span>
-                </div>
-                <div>
-                  <span className="text-2xl font-bold tracking-wider text-[#0B1B3A] font-serif block">
-                    DUM
-                  </span>
-                  <span className="text-xs tracking-[0.25em] text-[#0066FF] uppercase font-bold">
-                    Sociedade Lda
-                  </span>
-                </div>
+              <div className="mb-6 inline-block bg-white p-2.5 rounded-2xl border border-slate-200/80 shadow-xs">
+                <Image
+                  src="/images/logo/DumLogo1.png"
+                  alt="DUM Sociedade Lda"
+                  width={1071}
+                  height={634}
+                  className="h-12 w-auto object-contain"
+                />
               </div>
 
               <p className="text-sm text-slate-600 leading-relaxed max-w-md font-normal mb-6">

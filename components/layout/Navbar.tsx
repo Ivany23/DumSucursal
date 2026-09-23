@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, MapPin, Search, X } from 'lucide-react';
 import { MagneticButton } from '@/components/ui/MagneticButton';
@@ -42,25 +43,23 @@ export const Navbar: React.FC = () => {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-slate-100 ${
-          isScrolled ? 'py-3.5 shadow-sm' : 'py-5'
+          isScrolled ? 'py-2.5 shadow-sm' : 'py-3.5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3.5 group">
-            <div className="w-10 h-10 rounded-xl bg-blue-gradient border border-[#0066FF]/40 flex items-center justify-center shadow-sm group-hover:border-[#0066FF] transition-all duration-300">
-              <span className="text-xl font-serif font-black text-white tracking-tighter">
-                D
-              </span>
-            </div>
-
-            <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-wider text-[#0B1B3A] group-hover:text-[#0066FF] transition-colors font-serif">
-                DUM
-              </span>
-              <span className="text-[10px] tracking-[0.25em] text-[#0066FF] uppercase font-sans font-bold -mt-1">
-                Sociedade Lda
-              </span>
-            </div>
+          <Link
+            href="/"
+            className="flex items-center group py-0.5 transition-transform duration-300 hover:scale-[1.03]"
+            aria-label="DUM Sociedade Lda - Página Inicial"
+          >
+            <Image
+              src="/images/logo/DumLogo1.png"
+              alt="DUM Sociedade Lda"
+              width={1071}
+              height={634}
+              priority
+              className="h-10 sm:h-12 w-auto object-contain"
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1.5 p-1.5 rounded-full bg-slate-50 border border-slate-200">

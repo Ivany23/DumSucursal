@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { m, AnimatePresence } from 'framer-motion';
 import { X, MapPin, Phone, MessageCircle, ArrowRight } from 'lucide-react';
 import { StoreStatus } from '@/components/ui/StoreStatus';
@@ -29,14 +30,15 @@ export const MobileNav: React.FC<MobileNavProps> = ({
         >
           {/* Top Bar */}
           <div className="flex items-center justify-between border-b border-slate-100 pb-6">
-            <div className="flex items-center gap-3">
-              <span className="text-2xl font-bold tracking-widest text-[#0B1B3A] font-serif">
-                DUM
-              </span>
-              <span className="text-xs text-[#0066FF] border-l border-[#0066FF]/30 pl-3 uppercase tracking-wider font-bold">
-                Sociedade Lda
-              </span>
-            </div>
+            <Link href="/" onClick={onClose} className="flex items-center">
+              <Image
+                src="/images/logo/DumLogo1.png"
+                alt="DUM Sociedade Lda"
+                width={1071}
+                height={634}
+                className="h-10 w-auto object-contain"
+              />
+            </Link>
 
             <button
               onClick={onClose}
