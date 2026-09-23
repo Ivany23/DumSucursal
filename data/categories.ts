@@ -67,6 +67,8 @@ export const categories: Category[] = [
     name: 'Limpeza & Cuidado do Lar',
     shortDescription: 'Detergentes de alta eficácia, amaciadores perfumados e desinfetantes.',
     description: 'Tudo para manter residências e instalações comerciais impecavelmente higienizadas e perfumadas com as melhores marcas mundiais de limpeza profissional.',
+    image: '/images/categories/LimpezaCuidadoLar.png',
+    bannerImage: '/images/categories/LimpezaCuidadoLar.png',
     iconName: 'ShieldCheck',
     itemCount: '20+ Produtos',
     highlights: ['Dettol Antissépticos', 'MaQ Detergentes & Lixívias', 'MaQ Amaciadores Soft', 'Lava Loiça MaQ']
@@ -77,6 +79,8 @@ export const categories: Category[] = [
     name: 'Snacks, Chocolates & Delícias',
     shortDescription: 'Chocolates finos, frutos secos tostados, biscoitos crocantes e café gourmet.',
     description: 'Para pausas revigorantes, momentos de celebração ou sobremesas em família. Uma seleção irresistível de doçaria e petiscos estaladiços.',
+    image: '/images/categories/snacksChocolatesEDelcias.png',
+    bannerImage: '/images/categories/snacksChocolatesEDelcias.png',
     iconName: 'Cookie',
     itemCount: '30+ Produtos',
     highlights: ['Bolachas Bakers (15 Tipos)', 'Cereais Nestlé Cerevita', 'Café Europa', 'Hot Chocolate Nestlé']
@@ -87,6 +91,8 @@ export const categories: Category[] = [
     name: 'Linha Infantil & Bebé',
     shortDescription: 'Nutrição infantil, fraldas ultra-absorventes e toalhetes dermotestados.',
     description: 'O maior carinho e segurança para os pequenos. Produtos testados pediatricamente para garantir tranquilidade absoluta aos pais.',
+    image: '/images/categories/LinhaInfantil.png',
+    bannerImage: '/images/categories/LinhaInfantil.png',
     iconName: 'HeartHandshake',
     itemCount: '3 Produtos',
     highlights: ['Nido FortiGrow 400G', 'Nido FortiGrow 900G', 'Nido FortiGrow 1.8KG', 'Nutrição de Crescimento']
