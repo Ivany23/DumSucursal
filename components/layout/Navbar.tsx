@@ -42,37 +42,35 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-slate-100 ${
-          isScrolled ? 'py-2.5 shadow-sm' : 'py-3.5'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'py-2.5 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80'
+            : 'py-3.5 bg-white/85 backdrop-blur-sm border-b border-slate-100'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between">
-          <Link
-            href="/"
-            className="flex items-center group py-0.5 transition-transform duration-300 hover:scale-[1.03]"
-            aria-label="DUM Sociedade Lda - Página Inicial"
-          >
+          <Link href="/" className="flex items-center group py-0.5" aria-label="DUM Sociedade Lda - Início">
             <Image
-              src="/images/logo/DumLogo1.png"
+              src="/images/logo/logo.png"
               alt="DUM Sociedade Lda"
-              width={1071}
-              height={634}
+              width={160}
+              height={55}
               priority
-              className="h-10 sm:h-12 w-auto object-contain"
+              className="h-10 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-1.5 p-1.5 rounded-full bg-slate-50 border border-slate-200">
+          <nav className="hidden lg:flex items-center gap-1 p-1 rounded-full bg-slate-50 border border-slate-200/80">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3.5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-200 ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase transition-all duration-200 ${
                     isActive
-                      ? 'bg-[#0066FF] text-white font-bold shadow-xs'
-                      : 'text-slate-600 hover:text-[#0066FF] hover:bg-white'
+                      ? 'bg-[#1D4ED8] text-white font-semibold shadow-sm'
+                      : 'text-slate-600 hover:text-[#0F172A] hover:bg-slate-200/60'
                   }`}
                 >
                   {link.label}
@@ -84,12 +82,12 @@ export const Navbar: React.FC = () => {
           <div className="hidden lg:flex items-center gap-3">
             <button
               onClick={() => setSearchModalOpen(true)}
-              className="p-2.5 rounded-full bg-white border border-slate-200 text-[#0066FF] hover:border-[#0066FF] transition-all flex items-center gap-2 text-xs font-medium shadow-2xs group cursor-pointer"
+              className="px-3 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-600 hover:text-[#0F172A] hover:bg-slate-100 hover:border-slate-300 transition-all flex items-center gap-2 text-xs font-medium shadow-2xs group"
               title="Pesquisar produtos ou marcas"
               aria-label="Abrir pesquisa"
             >
-              <Search className="w-4 h-4 text-[#0066FF] group-hover:scale-110 transition-transform" />
-              <span className="text-slate-500 group-hover:text-[#0B1B3A]">Pesquisar...</span>
+              <Search className="w-3.5 h-3.5 text-[#1D4ED8] group-hover:scale-110 transition-transform" />
+              <span className="text-slate-500">Pesquisar...</span>
             </button>
 
             <MagneticButton
@@ -98,22 +96,22 @@ export const Navbar: React.FC = () => {
               size="sm"
               icon={<MapPin className="w-3.5 h-3.5" />}
             >
-              Visite a DUM
+              Visitar Loja
             </MagneticButton>
           </div>
 
           <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={() => setSearchModalOpen(true)}
-              className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-[#0066FF] hover:bg-slate-50 transition-colors cursor-pointer"
+              className="w-9 h-9 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-[#1D4ED8] hover:bg-white transition-colors"
               aria-label="Pesquisar"
             >
-              <Search className="w-5 h-5" />
+              <Search className="w-4 h-4" />
             </button>
 
             <Link
               href="/localizacao"
-              className="px-3 py-2 rounded-full text-xs font-bold text-white bg-[#0066FF] flex items-center gap-1 shadow-2xs"
+              className="px-3 py-1.5 rounded-lg text-xs font-semibold text-[#1D4ED8] bg-blue-50 border border-blue-200 flex items-center gap-1"
             >
               <MapPin className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Visitar</span>
@@ -121,7 +119,7 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-[#0066FF] hover:bg-slate-50 transition-colors cursor-pointer"
+              className="w-9 h-9 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-white transition-colors"
               aria-label="Abrir Menu"
             >
               <Menu className="w-5 h-5" />
@@ -131,22 +129,22 @@ export const Navbar: React.FC = () => {
       </header>
 
       {searchModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center pt-24 px-4 bg-[#0B1B3A]/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="w-full max-w-2xl bg-white rounded-3xl p-6 shadow-2xl border border-slate-200 relative animate-in zoom-in-95 duration-200">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-[#0066FF]/10 flex items-center justify-center text-[#0066FF]">
+        <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="w-full max-w-2xl bg-white rounded-2xl p-6 shadow-2xl border border-slate-200 relative animate-in zoom-in-95 duration-200">
+            <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center text-[#1D4ED8]">
                   <Search className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#0B1B3A]">Pesquisa no Catálogo DUM</h3>
-                  <p className="text-xs text-[#64748B]">Encontre qualquer um dos 140+ produtos ou marcas</p>
+                  <h3 className="text-sm font-bold text-[#0F172A]">Pesquisa no Catálogo DUM</h3>
+                  <p className="text-xs text-slate-500">140+ produtos e marcas em stock</p>
                 </div>
               </div>
 
               <button
                 onClick={() => setSearchModalOpen(false)}
-                className="p-2 rounded-full hover:bg-gray-100 text-gray-500 transition-colors"
+                className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -155,7 +153,7 @@ export const Navbar: React.FC = () => {
             <SearchBar
               autoFocus
               showDropdown={true}
-              placeholder="Digite o nome do produto ou marca (ex: Compal, Dettol, Arroz, Açúcar)..."
+              placeholder="Digite o nome do produto ou marca (ex: Compal, Dettol, Arroz, Açúcar, MaQ)..."
             />
           </div>
         </div>
